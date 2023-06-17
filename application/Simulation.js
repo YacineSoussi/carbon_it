@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var AventurierMover_1 = require("./AventurierMover");
+var AventurierMover_1 = require("../domain/AventurierMover");
 var Simulation = /** @class */ (function () {
     function Simulation() {
     }

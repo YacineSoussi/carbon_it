@@ -1,10 +1,5 @@
 import { expect } from 'chai';
-import sinon from 'sinon';
 import AventurierMover from '../domain/AventurierMover';
-import Aventurier from '../domain/Aventurier';
-import Carte from '../domain/Carte';
-import Montagne from '../domain//Montagne';
-import Tresor from '../domain//Tresor';
 
 
 describe('AventurierMover', () => {
@@ -165,7 +160,7 @@ describe('AventurierMover', () => {
 
         const carte = {
           largeur: 3,
-          hauteur: 3,
+hauteur: 4,
         };
 
         const montagnes = [];
@@ -190,7 +185,7 @@ describe('AventurierMover', () => {
 
         const carte = {
           largeur: 3,
-          hauteur: 3,
+hauteur: 4,
         };
 
         const montagnes = [{ x: 1, y: 1 }];
@@ -215,7 +210,7 @@ describe('AventurierMover', () => {
 
         const carte = {
           largeur: 3,
-          hauteur: 3,
+hauteur: 4,
         };
 
         const montagnes = [];
@@ -319,7 +314,7 @@ describe('AventurierMover', () => {
         };
         const carte = {
           largeur: 3,
-          hauteur: 3,
+hauteur: 4,
         };
         const montagnes = [];
         const tresors = [];
@@ -341,7 +336,7 @@ describe('AventurierMover', () => {
         };
         const carte = {
           largeur: 3,
-          hauteur: 3,
+hauteur: 4,
         };
         const montagnes = [];
         const tresors = [];
@@ -365,7 +360,7 @@ describe('AventurierMover', () => {
         };
         const carte = {
           largeur: 3,
-          hauteur: 3,
+hauteur: 4,
         };
         const montagnes = [];
         const tresors = [{ x: 1, y: 0, quantite: 1 }];
@@ -388,7 +383,7 @@ describe('AventurierMover', () => {
         };
         const carte = {
           largeur: 3,
-          hauteur: 3,
+hauteur: 4,
         };
         const montagnes = [];
         const tresors = [{ x: 1, y: 0, quantite: 1 }];
@@ -411,7 +406,7 @@ describe('AventurierMover', () => {
         };
         const carte = {
           largeur: 3,
-          hauteur: 3,
+                    hauteur: 3,
         };
         const montagnes = [];
         const tresors = [];
@@ -421,5 +416,29 @@ describe('AventurierMover', () => {
         expect(aventurier.tresorsRamasses).to.equal(0);
         expect(tresors.length).to.equal(0);
       });
+      
+      it('ne devrait pas ramasser plus de 1 trésor lorsque l\'aventurier se déplace sur une case contenant 2 trésors', () => {
+        const mover = new AventurierMover();
+        const aventurier = {
+          nom: 'Aventurier 1',
+          x: 1,
+          y: 1,
+          orientation: 'N',
+          sequence: 'A',
+          tresorsRamasses: 0,
+        };
+        const carte = {
+          largeur: 3,
+          hauteur: 4,
+        };
+        const montagnes = [];
+        const tresors = [{ x: 1, y: 0, quantite: 2 }];
+  
+        mover.deplacerAventurier(aventurier, carte, montagnes, tresors);
+  
+        expect(aventurier.tresorsRamasses).to.equal(1);
+        expect(tresors[0].quantite).to.equal(1);
+      });
+
     });
   });

@@ -14,9 +14,8 @@ M - 1 - 0
 T - 1 - 2 - 1
 A - Aventurier 1 - 1 - 1 - N - A`;
 
-      // Créer un fichier d'entrée temporaire avec le contenu spécifié
       fs.writeFileSync(inputFile, contenuFichier, 'utf8');
-
+      
       const resultat = fichierIO.lireFichierEntree(inputFile);
 
       expect(resultat).to.deep.equal({
@@ -34,7 +33,6 @@ A - Aventurier 1 - 1 - 1 - N - A`;
         }]
       });
 
-      // Supprimer le fichier d'entrée temporaire après les tests
       fs.unlinkSync(inputFile);
     });
   });
