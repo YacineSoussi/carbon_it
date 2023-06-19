@@ -86,7 +86,7 @@ describe('AventurierMover', () => {
           tresorsRamasses: 0,
         };
         const carte = {
-          largeur: 4, // Exemple de largeur différente de la hauteur
+          largeur: 4, 
           hauteur: 3,
         };
         const montagnes = [];
@@ -109,7 +109,7 @@ describe('AventurierMover', () => {
           tresorsRamasses: 0,
         };
         const carte = {
-          largeur: 4, // Exemple de largeur différente de la hauteur
+          largeur: 4, 
           hauteur: 3,
         };
         const montagnes = [{ x: 1, y: 2 }];
@@ -133,7 +133,7 @@ describe('AventurierMover', () => {
         };
     
         const carte = {
-          largeur: 4, // Exemple de largeur différente de la hauteur
+          largeur: 4, 
           hauteur: 3,
         };
         const montagnes = [];
