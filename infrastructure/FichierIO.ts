@@ -1,5 +1,5 @@
 import { readFileSync, writeFile } from "fs";
-import Aventurier from "../Aventurier";
+import Aventurier from "../domain/Aventurier";
 import Carte from "../domain/Carte";
 import Montagne from "../domain/Montagne";
 import Tresor from "../domain/Tresor";
