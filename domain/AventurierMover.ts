@@ -23,14 +23,14 @@ class AventurierMover {
         const mouvement = aventurier.sequence[i];
   
         if (mouvement === "A") {
-          this.deplacerVers(aventurier, deplacements, carte, montagnes, tresors);
+          this.deplacerAventurierVersCaseAccessible(aventurier, deplacements, carte, montagnes, tresors);
         } else {
           this.tournerAventurier(aventurier, mouvement);
         }
       }
     }
   
-    private deplacerVers(
+    private deplacerAventurierVersCaseAccessible(
       aventurier: Aventurier,
       deplacements: { [key: string]: { x: number; y: number } },
       carte: Carte,
@@ -42,7 +42,7 @@ class AventurierMover {
       const newY = aventurier.y + deplacement.y;
   
       if (this.estCaseAccessible(newX, newY, carte, montagnes)) {
-        this.deplacerAventurierVers(aventurier, newX, newY, tresors);
+        this.deplacerAventurierSurCase(aventurier, newX, newY, tresors);
       }
     }
   
@@ -65,7 +65,7 @@ class AventurierMover {
       return montagnes.some((montagne) => montagne.x === x && montagne.y === y);
     }
   
-    private deplacerAventurierVers(
+    private deplacerAventurierSurCase(
       aventurier: Aventurier,
       newX: number,
       newY: number,
